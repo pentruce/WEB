@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <script>
+    $(function () {
+      $("#allcheck").click(function () {
+
+        if ($("#allcheck").is(":checked") == true) {
+          $(":checkbox").prop("checked", true);
+        } else {
+          $(":checkbox").prop("checked", false);
+        }
+      });
+
+      $("#printlog").click(function () {
+
+        $("input:checkbox[id=itemcheck]").each(function()
+        {
+        if($(this).is(":checked") == true){
+          let index = $(this).val();
+
+          console.log($("[name=title"+index+"]").text());
+        }
+    
+        });
+        
+      });
+    });
+
+  </script>
+
+  <style>
+    table,
+    tr,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    td {
+      text-align: center;
+      padding: 5px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .button {
+      margin-right: 10px;
+      margin-left: 300px;
+      width: 100px;
+      height: 40px;
+    }
+  </style>
+
+  <body>
+    <table>
+      <tr>
+        <td><input type="checkbox" id="allcheck" />확인</td>
+        <td>제목</td>
+        <td>글쓴시간</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="itemcheck" value="0" /></td>
+        <td type="text" name="title0">kopo15</td>
+        <td>16:31:30</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="itemcheck" value="1" /></td>
+        <td type="text" name="title1">kopo15</td>
+        <td>16:31:30</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="itemcheck" value="2" /></td>
+        <td type="text" name="title2">kopo15<td>
+        <td>16:31:30</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="itemcheck" value="3"/></td>
+        <td type="text" name="title3">kopo15</td>
+        <td>16:31:30</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="itemcheck" value="4"/></td>
+        <td type="text" name="title4">kopo15</td>
+        <td>16:31:30</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="itemcheck" value="5"/></td>
+        <td type="text" name="title5">kopo15</td>
+        <td>16:31:30</td>
+      </tr>
+    </table>
+    <br />
+
+    <input type="button" class="button" id="printlog" value="로그" />
+  </body>
+</html>

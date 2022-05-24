@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      #container {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        left: 50px;
+        top: 50px;
+        border: 1px black solid;
+      }
+
+      #mario {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+
+    <div id="container">
+      <img id="mario" src="../assets/mario.png" alt="mario" />
+    </div>
+
+    <script>
+      const WIDTH = 600;
+      const HEIGHT = 600;
+      let mario = $("#mario");
+
+      $("body").keydown(function (event) {
+        // 마리오 현재 좌표 정보
+        let left = parseInt(mario.css("left").replace("px", ""));
+        let top = parseInt(mario.css("top").replace("px", ""));
+        let right = left + 100;
+        let bottom = top + 100;
+        let move = 25; // 이동할 픽셀
+
+        switch (event.key) {
+          case "ArrowLeft":
+            if (left - move >= 0) {
+              mario.css({ left: "-=25px" });
+            }
+            break;
+          case "ArrowRight":
+            if (right + move <= WIDTH) {
+              mario.css({ left: "+=25px" });
+            }
+            break;
+          case "ArrowUp":
+            if (top - move >= 0) {
+              mario.css({ top: "-=25px" });
+            }
+            break;
+          case "ArrowDown":
+            if (bottom + move <= HEIGHT) {
+              mario.css({ top: "+=25px" });
+            }
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

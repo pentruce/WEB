@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kopo15</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      #container {
+        position: absolute;
+        width: 1200px;
+        height: 600px;
+        left: 50px;
+        top: 50px;
+        border: 1px black solid;
+      }
+
+      #mario {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        bottom: 120px;
+        left: 20px;
+      }
+
+      #killer {
+        position: absolute;
+        width: 100px;
+        bottom: 120px;
+        right: -100px;
+      }
+
+      #img {
+        width: 1200px;
+        height: 600px;
+      }
+    </style>
+
+    <div id="container">
+      <img id="mario" src="../assets/mari.png" alt="mario" />
+      <img id="killer" src="../assets/ki.png" alt="killer" />
+      <img id="img" src="../assets/img.png" alt="img" />
+    </div>
+    <div id="gameover">
+      Game_OVER!
+      <button class="game_start_button">START!</button>
+    </div>
+    <div id="start">
+      <button class="game_start_button">Game_START!</button>
+    </div>
+
+    <script>
+      const WIDTH = 1200;
+      const HEIGHT = 600;
+
+      let mario = $("#mario");
+      let killer = $("#killer");
+
+      // 상태
+      let isJumping = false;
+      let isGameOver = false;
+
+      function jump() {
+        if (isJumping) {
+          return;
+        }
+
+        isJumping = true;
+        mario
+          .animate({ bottom: "+=100px" }, 500)
+          .animate({ bottom: "-=100px" }, 500, function () {
+            isJumping = false;
+          });
+      }
+
+      function moveKiller() {
+        killer.animate({ right: "120%" }, 3000, function () {
+          killer.css({ right: "-100px" });
+
+          if (isGameOver == false) {
+            setTimeout(moveKiller);
+          }
+        });
+      }
+
+      function marioDead() {
+        let killerLeft = parseInt(killer.css("left").replace("px", ""));
+        let marioLeft = parseInt(mario.css("left").replace("px", ""));
+        let marioRight = marioLeft + 100;
+
+        if (
+          isJumping == false &&
+          marioRight > killerLeft &&
+          killerLeft > marioLeft
+        ) {
+          isGameOver = true;
+        }
+      }
+
+      function gameOver() {
+        isGameOver = true;
+        killer.stop();
+
+        // 게임오버 화면 보여주고
+        $("#gameover").show();
+        $("#start").hide();
+        $("#container").hide;
+      }
+
+      function gameStart() {
+        $("#gameover").hide();
+        $("#start").show();
+        $("#container").show;
+        isGameOver = false;
+
+        killer.css({ right: "-100px" });
+      }
+
+      $("body").keydown(function (event) {
+        // 마리오 현재 좌표 정보
+        let left = parseInt(mario.css("left").replace("px", ""));
+        let top = parseInt(mario.css("top").replace("px", ""));
+        let right = left + 100;
+        let bottom = top + 100;
+        let move = 25; // 이동할 픽셀
+
+        switch (event.key) {
+          case " ":
+            jump();
+            break;
+        }
+      });
+
+      $(".game_start_button").click(function () {
+        gameStart();
+      });
+
+      function game() {
+        setTimeout(moveKiller, 1000);
+
+        // 게임 화면 그리기 30frame
+        setInterval(function () {
+          if (isGameOver) {
+            gameOver();
+          } else {
+            // 1초에 30번 그리기
+
+            // 마리오 사망 체크
+            marioDead();
+          }
+        }, 1000 / 30);
+      }
+
+      $(function () {
+        gameStart();
+
+        $(".game_start_button").click(function () {
+          game();
+        });
+      });
+    </script>
+  </body>
+</html>

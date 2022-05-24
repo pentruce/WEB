@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+
+    <style>
+        .button {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 100px;
+            background-color: rgb(80, 80, 80);
+            color: white;
+            font-size: 30px;
+        }
+
+        .click {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 100px;
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+            font-size: 30px;
+        }
+
+        #html {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #css {
+            position: absolute;
+            top: 10px;
+            left: 320px;
+        }
+
+        #javascript {
+            position: absolute;
+            top: 10px;
+            left: 630px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $('#html').click(function () {
+                $('div').removeClass();
+                $('#html').addClass('click');
+                $('#css').addClass('button');
+                $('#javascript').addClass('button');
+            })
+
+            $('#css').click(function () {
+                $('div').removeClass();
+                $('#html').addClass('button');
+                $('#css').addClass('click');
+                $('#javascript').addClass('button');
+            })
+
+            $('#javascript').click(function () {
+                $('div').removeClass();
+                $('#html').addClass('button');
+                $('#css').addClass('button');
+                $('#javascript').addClass('click');
+            })
+
+        })
+
+    </script>
+
+    <div class='button' id='html'>html</div>
+    <div class='button' id='css'>css</div>
+    <div class='button' id='javascript'>javascript</div>
+
+</body>
+
+</html>

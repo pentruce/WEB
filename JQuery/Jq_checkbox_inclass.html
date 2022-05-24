@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>kopo15</title>
+  </head>
+  <body>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      table {
+        width: 600px;
+      }
+    </style>
+    <!-- table>tr*7>td*3 -->
+    <table>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="a" />확인</th>
+        <th>제목</th>
+        <th>글쓴시간</th>
+      </tr>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="s" />확인</th>
+        <td>a</td>
+        <td>kopo15a</td>
+      </tr>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="d" />확인</th>
+        <td>b</td>
+        <td>kopo15b</td>
+      </tr>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="qa" />확인</th>
+        <td>c</td>
+        <td>kopo15v</td>
+      </tr>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="da" />확인</th>
+        <td>d</td>
+        <td>kopo15d</td>
+      </tr>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="t" />확인</th>
+        <td>e</td>
+        <td>kopo15w</td>
+      </tr>
+      <tr>
+        <th><input type="checkbox" name="all" id="all" value="qq" />확인</th>
+        <td>f</td>
+        <td>kopo15ab</td>
+      </tr>
+    </table>
+    <input type="button" value="log" id="log_button" />
+    <script>
+      $(function () {
+        $("#all").click(function () {
+          if (this.checked) {
+            $("input[name=chk]:checkbox").prop("checked", this.checked);
+          }
+
+          $("#log_button").click(function () {
+            if ($(":checkbox[name=chk]").is(":checkd") == false) {
+              alert("no selection");
+              return;
+            }
+
+            //if there's check - 체크된 체크박스들만 얻기
+            $(":checkbox[name]chk]").each(function () {
+              console.log($(this).val());
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
