@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KOPO15</title>
+  </head>
+  <body>
+    <script>
+      // 문서를 읽는 기능
+      function loadDoc() {
+        //XMLHttpRequest 생성
+        let xhttp = new XMLHttpRequest();
+
+        //응답왔을때의 callback 함수 정의
+        xhttp.onreadystatechange = function () {
+          //this = xhttp의미한다.
+          //this.readyState == 4 : (정상)완료되었다는 의미 / 응답이 오면 error도 완료임.
+          //this.status == 200 : successful responses / web_standard / meaning : ok!
+          //this.status == 404 : 서버입장에서 이상함 - (Not Found)
+
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+          } //demo라는 요소 찾아서 innerHTML함.
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true); 
+        //ajax_info.txt => 대신 http~ 로 사용할 수 도 있음
+        //OPEN request 과정 거침
+        //통신방식 및 대상을 설정한다.
+        //get방식을  사용함. - get/post/patch/delete...
+        xhttp.send();
+        //최종 실행함
+      }
+    </script>
+
+    <div id="demo"></div>
+    <button onclick="loadDoc()">데이터 로드</button>
+  </body>
+</html>

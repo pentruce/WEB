@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kopo15</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      $(function () {
+        loadData();
+      });
+
+      //   function moveCommentsPage(postId) {
+      //     window.location.href = `exam5_comments.html?id=${postId}`;
+      //   }
+
+      function loadData() {
+        fetch(
+          "https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1"
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            let list = $("#items");
+            for (var i = 0; i < data.results.length; i++) {
+              console.log(data.results[i].title);
+              console.log(data.results[i].backdrop_path);
+              list.append(`<div class="card" onclick="https://image.tmdb.org/t/p/w500(${data.results[i].backdrop_path})">
+    <div class="container">
+      <h4><b>${data.results[i].title}</b></h4>
+      <p><img src="https://image.tmdb.org/t/p/w500${data.results[i].backdrop_path}"</p>
+    </div>
+  </div>`);
+            }
+          });
+      }
+    </script>
+
+    <style>
+     
+      .card {
+        background-image: url("https://img.freepik.com/free-photo/desktop-source-code-wallpaper-by-computer-language-with-coding-programming_33771-594.jpg?w=2000");
+        width: 540px;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 14px 18px 0 rgba(186, 13, 126, 0.2);
+        transition: 0.9s;
+        margin: 16px;
+        border-radius: 35px;
+        color: white;
+        text-align: center;
+        font-size: large;
+      }
+
+      /* On mouse-over, add a deeper shadow */
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(8, 242, 63, 0.2);
+      }
+
+      /* Add some padding inside the card container */
+      .container {
+        
+        padding: 2px 16px;
+      }
+    </style>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EB%B0%95%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4">인기영화</a>
+      </li> <br>
+      <li class="nav-item">
+        <a class="nav-link" href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%B6%94%EC%B2%9C%EC%98%81%ED%99%94&oquery=%EB%B0%95%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4&tqi=hoMIxsprvhGssP2Dwrhssssssyw-037891">추천영화</a>
+      </li><br>
+      <li class="nav-item">
+        <a class="nav-link" href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EB%B0%95%EC%8A%A4%EC%98%A4%ED%94%BC%EC%8A%A4">최신영화</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br />
+
+
+    <div id="items"></div>
+   
+  </body>
+
+</html>

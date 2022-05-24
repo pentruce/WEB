@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KOPO15</title>
+  </head>
+  <body>
+    <script>
+      function loadDoc() {
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+          //return타입이 promise임.
+
+          .then((response) => response.json())
+          //x => 내용 : lambda 표기법 , JS 화살표 표기법
+          //then : promise
+          .then((json) => {
+            document.getElementById("todos").innerHTML = JSON.stringify(title);
+            document.getElementById("todos").textContent = json.name;
+            //document.getElementById("result").textContent = json.skill;
+          });
+      }
+    </script>
+    <div id="todos"></div>
+    <!-- <div id="result"></div> -->
+    <button onclick="loadDoc()">데이터 로드</button>
+  </body>
+</html>
