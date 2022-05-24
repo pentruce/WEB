@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="name" value="이름" />
+    <br /><br />
+    <input type="id" value="아이디" />
+    <br /><br />
+    <input type="password1" value="비밀번호" />
+    <label for="name"><u>비밀번호 도움말</u> </label>
+    <br /><br />
+    <input type="password_again" value="비밀번호 재입력" />
+    <br /><br />
+
+    <select id="txtMobile1">
+      <option value="">휴대폰 번호 선택</option>
+      <option value="011">011</option>
+      <option value="016">016</option>
+      <option value="017">017</option>
+      <option value="019">019</option>
+      <option value="010">010</option>
+    </select>
+    <input type="text" id="txtMobile2" size="4" onkeypress="onlyNumber();" />
+    <input type="text" id="txtMobile3" size="4" />
+    <br /><br />
+    <input type="email" value="이메일" />@
+    <select id="이메일">
+      <option value="">선택</option>
+      <option value="011">naver.com</option>
+      <option value="016">gmail.com</option>
+      <option value="017">daum.net</option>
+      <option value="019">kakao.com</option>
+      <option value="010">hanmail.net</option>
+    </select>
+    <br /><br />
+
+    <select id="txtMobile2">
+      <option value="" style="width: 100px">전화번호</option>
+      <option value="02">02</option>
+      <option value="031">031</option>
+      <option value="032">032</option>
+      <option value="066">066</option>
+      <option value="053">053</option>
+    </select>
+    <input
+      type="text"
+      size="10"
+      maxlength="8"
+      id="txtMobile2"
+      size="4"
+      onkeypress="onlyNumber();"
+    />
+    <input type="text" id="txtMobile3" size="4" />
+    <br /><br />
+    <select id="txtMobile3">
+      <option value="">휴대폰 번호</option>
+      <option value="011">011</option>
+      <option value="016">016</option>
+      <option value="017">017</option>
+      <option value="019">019</option>
+      <option value="010">010</option>
+    </select>
+    <input type="text" id="txtMobile2" size="4" onkeypress="onlyNumber();" />
+    <input type="text" id="txtMobile3" size="4" />
+    <input type="button" name="" id="" value="휴대폰 인증" />
+    <br />
+    <input type="radio" name="" id="check1" />
+    <label for="check1">인증받은 휴대폰 번호를 대표번호로 사용</label>
+    <input type="radio" name="" id="check2" />
+    <label for="check2">다른번호 등록</label>
+    <input type="radio" name="" id="check3" />
+    <label for="check3">다음에 등록함</label>
+
+    <br /><br />
+    <input type="name" style="background-color: lightgrey" value="우편번호" />
+    <input type="button" value="주소찾기" />
+    <br /><br />
+    <input type="button" value="가입신청" style="background-color: crimson" />
+    <input type="button" name="" id="" value="취소" />
+  </body>
+</html>

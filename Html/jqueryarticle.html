@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kopo15</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- 최신버전 제이쿼리 -->
+  </head>
+  <body>
+    <style>
+      .div {
+        width: auto;
+        padding: 5px;
+        border: 3px;
+        line-height: 60px;
+      }
+      .articlebox {
+        text-indent: 10px;
+        width: 250px;
+        height: 580px;
+        line-height: 60px;
+      }
+
+      header {
+        background-color: gray;
+        color: whitesmoke;
+      }
+
+      .box2 {
+        background-color: whitesmoke;
+      }
+
+      .con {
+        text-indent: 0px;
+        padding: 5px;
+        width: 200px;
+        position: relative;
+        left: 20px;
+        line-height: 20px;
+      }
+
+      .inline {
+        background-color: whitesmoke;
+        padding: 5px;
+      }
+
+      button {
+        padding: 5px;
+        border: 3px navy solid;
+        background-color: lightgray;
+      }
+    </style>
+    <script>
+      $(function () {
+        $("#submit").click(function () {
+          do {
+            text = prompt("내용 입력: ");
+            $(".con").append('<div class="inline">' + text + "</div><br>");
+          } while (text != "");
+        });
+      });
+    </script>
+    <div class="articlebox">
+      <header>KOPO15 - 기사 등록하기</header>
+      <div class="box2">
+        <br />
+        <div><b>박지성</b> SBS에서 월드컵보세요!</div>
+        <div><b>안정환</b> MBC죠..</div>
+        <div><b>이영표</b> kBS는 수신료의 가치를...</div>
+        <div class="con"></div>
+      </div>
+      <button id="submit">SUBMIT</button>
+    </div>
+  </body>
+</html>

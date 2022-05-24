@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KOPO15</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+
+      let con = prompt("내용입력:");
+      if (con == "" || con == null) {
+        con = prompt("텍스트 값을 입력해주세요");
+      } 
+         document.getElementById("demo").innerHTML = con;
+    
+    
+    </script>
+    
+    <body style = "text-align: center;" > 
+    <button onclick="red()">빨강</button>
+    <button onclick="blue()">파랑</button>
+    <button onclick="green()">초록</button>
+  
+    <script>
+      function red() {
+        alert("빨강색으로 변경됩니다");
+        document.getElementById("demo").innerHTML = con;
+        document.body.style.color = "red";
+      }
+
+      function blue() {
+        alert("파란색으로 변경됩니다");
+        document.getElementById("demo").innerHTML = con;
+        document.body.style.color = "blue";
+      }
+
+      function green() {
+        alert("초록색으로 변경됩니다");
+        document.getElementById("demo").innerHTML = con;
+        document.body.style.color = "green";
+      }
+    
+    </script>
+  </body>
+</html>
+

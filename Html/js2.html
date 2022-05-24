@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="myscript.js"></script>
+    <!-- head안에 끌고옴 -->
+  </head>
+  <body>
+    <!-- <script>
+      alert("경고");
+      // 새로고침하면 바로 경고창 뜸
+    </script> -->
+
+    <script>
+      //변수 선언 - 중복선언 가능, 예기치 못한 값 반환가능
+      var i = 10;
+      var name = "kopo15";
+
+      //상수 -요즘 트렌드
+      const STUDENT_COUNT = 10;
+      let j = 10; //중복선언 불가
+
+      //자바 스타일의 문자열 병합
+      var result = name + "은" + i + "살 입니다.";
+
+      //나중에 추가된 문자열 병합
+      result = `${name}은${i}살입니다`;
+
+      function myAlert() {
+        //alert("경고경고"); //함수의 선언 - 실행은 안됨
+        console.log("경고경고");
+      }
+    </script>
+
+    <input type="button" value="버튼" onclick="javascript:alert('warning')"" />
+    <button onclick="alert('경고')">button</button>
+    <!-- javascript길어서 생략해도 동일한 경고창 뜸 -->
+
+    <button onclick="myAlert()">버어튼</button>
+
+    <button ondblclick="showMyName()">더블클릭</button>
+    <!-- 더블클릭하면 js에 썼던 kopo15라는 창이 뜸. -->
+  </body>
+</html>

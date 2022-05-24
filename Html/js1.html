@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="myscript.js"></script>
+    <!-- head안에 끌고옴 -->
+  </head>
+  <body>
+    <!-- <script>
+      alert("경고");
+      // 새로고침하면 바로 경고창 뜸
+    </script> -->
+
+    <script>
+      function myAlert() {
+        alert("경고경고"); //함수의 선언 - 실행은 안됨
+      }
+    </script>
+
+    <input type="button" value="버튼" onclick="javascript:alert('warning')" />
+    <button onclick="alert('경고')">button</button>
+    <!-- javascript길어서 생략해도 동일한 경고창 뜸 -->
+
+    <button onclick="myAlert()">버어튼</button>
+
+    <button ondblclick="showMyName()">더블클릭</button>
+    <!-- 더블클릭하면 js에 썼던 kopo15라는 창이 뜸. -->
+  </body>
+</html>

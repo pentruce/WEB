@@ -1,0 +1,51 @@
+//if문 이름 받기 예제
+<!-- version-1 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //이름 입력받음 (prompt)
+      var text = prompt("이름을 입력해주세요");
+      console.log(text);
+      //만약, 이름 입력안되면(취소처리) (''),null => 입력해주세요 띄우기 (if문 사용)
+      //또입력 받기 (prompt)
+      if (text == null) {
+        alert("다시 입력해주세요!");
+        var text = prompt("이름을 재입력해주세요");
+        console.log(text);
+        alert(+text + "님 안녕하세요!");
+      } else if (text) {
+        alert(+text + "님 안녕하세요!");
+      }
+      //입력받아지면 'ㅇㅇ님 안녕하세요' 창 띄우기 (alert)
+    </script>
+  </body>
+</html>
+
+<!-- version-2 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let name = prompt("name:");
+      if (name == "" || name == null) {
+        name = prompt("재입력해주세요");
+      }
+
+     // alert(+name + "님 안녕하세요");
+      alert(`${name} 님 안녕하세요`);
+    </script>
+  </body>
+</html>
